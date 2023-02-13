@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  h2:
+    console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:default
+    username: h2user
+    password: h2pass
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        check_nullability: true
+    hibernate:
+      ddl-auto: none
+  jackson:
+    deserialization:
+      accept-single-value-as-array: true
+
+springdoc:
+  show-actuator: true
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  file:
+    path: "./logs"
+  level:
+    root: info
