@@ -1,13 +1,11 @@
 package com.example.sbertesttask.model;
 
 import com.example.sbertesttask.enums.Format;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
@@ -16,11 +14,13 @@ import java.util.Date;
 @Table(name = "movie")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     @NotEmpty(message = "Name may not be empty")
     String name;

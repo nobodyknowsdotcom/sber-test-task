@@ -2,6 +2,7 @@ package com.example.sbertesttask.controller.exceptionhandler;
 
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,6 +25,14 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
         String exceptionCause = illegalArgumentException.getMessage();
 
         log.warn(String.format("Caught IllegalArgumentException with root cause %s", exceptionCause));
+        return new ResponseEntity<>(exceptionCause, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({DataIntegrityViolationException.class})
+    public ResponseEntity<String> failedDatabaseEnumParsingException(DataIntegrityViolationException dataIntegrityViolationException) {
+        String exceptionCause = dataIntegrityViolationException.getMessage();
+
+        log.warn(String.format("Caught DataIntegrityViolationException with root cause %s", exceptionCause));
         return new ResponseEntity<>(exceptionCause, HttpStatus.BAD_REQUEST);
     }
 }
