@@ -4,10 +4,15 @@ import com.example.sbertesttask.enums.Format;
 import com.example.sbertesttask.model.Movie;
 import com.example.sbertesttask.repository.MovieRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Реализует интерфейс MovieService и использует MovieRepository для сохранения и извлечения фильмов.
+ */
 @Slf4j
 @Service
 public class MovieServiceImpl implements MovieService{
@@ -49,5 +54,11 @@ public class MovieServiceImpl implements MovieService{
         List<Movie> movies = movieRepository.findAllByFormat(format);
         log.info(String.format("Found %s movies by '%s' format", movies.size(), format));
         return movies;
+    }
+
+    @Override
+    public Page<Movie> getMoviesPagination(Pageable pageable) {
+        log.info(String.format("Processing pagination request %s", pageable.toString()));
+        return movieRepository.findAll(pageable);
     }
 }

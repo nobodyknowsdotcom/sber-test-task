@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Фасад, который разбирает входные запросы от контроллера и выбирает нужный обработчик запроса
+ */
 @Service
 public class MovieFacade {
     private final MovieService movieService;

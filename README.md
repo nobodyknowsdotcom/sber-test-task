@@ -33,5 +33,7 @@
     > `curl "http://localhost:8080/movie-api/?filter=type&query=full"`
 - Получить все фильмы 1997 года выпуска
     > `curl "http://localhost:8080/movie-api/?filter=year&query=1997"`
+- Получить пагинацию с сортировкой по дате
+  > `curl "http://localhost:8080/movie-api/pagination?size=3&page=0&sort=date"`
 
 
