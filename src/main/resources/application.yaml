@@ -15,16 +15,24 @@ spring:
     properties:
       hibernate:
         check_nullability: true
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
     hibernate:
       ddl-auto: none
   jackson:
     deserialization:
       accept-single-value-as-array: true
 
+
+
 springdoc:
   show-actuator: true
+  api-docs:
+    path: /api-docs
   swagger-ui:
-    path: /swagger-ui.html
+    path: /swagger-ui
 
 logging:
   file:
