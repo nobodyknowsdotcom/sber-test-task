@@ -1,6 +1,7 @@
 package com.example.sbertesttask.model;
 
 import com.example.sbertesttask.enums.Format;
+import com.example.sbertesttask.enums.Genre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
@@ -27,13 +28,15 @@ public class Movie {
     @NotEmpty(message = "Description may not be empty")
     String description;
     @NotNull(message = "Format may not be empty")
+    @Enumerated(EnumType.STRING)
     Format format;
-    @NotEmpty(message = "Genre may not be empty")
-    String genre;
+    @NotNull(message = "Genre may not be empty")
+    @Enumerated(EnumType.STRING)
+    Genre genre;
     @NotNull(message = "Date may not be empty")
     Date date;
 
-    public Movie(String name, String description, Format format, String genre, Date date) {
+    public Movie(String name, String description, Format format, Genre genre, Date date) {
         this.name = name;
         this.description = description;
         this.format = format;
