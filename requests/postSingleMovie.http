@@ -1,0 +1,11 @@
+###
+POST http://localhost:8080/movie-api/
+Content-Type: application/json
+
+{
+  "name": "Люди в белом",
+  "description": "Фильм про людей в белом",
+  "format": "FULL",
+  "genre": "ACTION",
+  "date": "2022-02-12"
+}

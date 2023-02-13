@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,8 +25,10 @@ public class Movie {
     @JsonIgnore
     Long id;
     @NotEmpty(message = "Name may not be empty")
+    @Size(min=1, max=64)
     String name;
-    @NotEmpty(message = "Description may not be empty")
+    @NotNull(message = "Description may not be empty")
+    @Size(max=256)
     String description;
     @NotNull(message = "Format may not be empty")
     @Enumerated(EnumType.STRING)

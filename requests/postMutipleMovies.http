@@ -1,0 +1,27 @@
+###
+POST http://localhost:8080/movie-api/
+Content-Type: application/json
+
+[
+  {
+    "name": "Люди в белом",
+    "description": "Фильм про людей в белом",
+    "format": "FULL",
+    "genre": "ACTION",
+    "date": "2022-02-12"
+  },
+  {
+    "name": "Люди в сером",
+    "description": "Фильм про людей в сером",
+    "format": "FULL",
+    "genre": "ACTION",
+    "date": "2022-02-12"
+  },
+  {
+    "name": "Люди в зеленом",
+    "description": "Наверное, это как-то связанно со сбером.",
+    "format": "FULL",
+    "genre": "SCIFI",
+    "date": "2022-02-12"
+  }
+]
